@@ -1,1 +1,1 @@
-# open_weather_wrapper
+# PLaying with Open Weather API
