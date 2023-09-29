@@ -1,1 +1,1 @@
-# PLaying with Open Weather API
+# Playing with Open Weather API
