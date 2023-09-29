@@ -26,7 +26,3 @@ class Forecast():
         for day in response['daily']:
             unix_timestamp = day['dt']
             print(f"{datetime.utcfromtimestamp(unix_timestamp).strftime('%Y-%m-%d')}\t{day['temp']['min']}/{day['temp']['max']}\t{day['rain']}")
-
-api_key = os.getenv('API_KEY')
-
-print(api_key)
