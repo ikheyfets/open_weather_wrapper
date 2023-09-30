@@ -15,4 +15,4 @@ pip install
 python backend/main.py   
 ```
 
-Navigate to [http://localhost:8000](http://localhost:8000) and you'll see your weather forecast.
+Navigate to http://localhost:8000/?zip_code=`<Insert zip code here>` and you will see your forecast.
