@@ -16,13 +16,16 @@ class Forecast():
         lon = response['lon']
         return lat, lon
     
-    def get(self, zip_code):
+    def get(self, zip_code, days=5):
         lat, lon = self.geocode_zip_to_coords(zip_code)
 
         api_call = f'https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude=current,minutely,hourly,alerts&appid={self.api_key}'
         response = requests.get(api_call).json()
 
-        for day in response['daily']:
+        result = []
+
+        for i in range(days):
+            day = response['daily'][i]
             unix_timestamp = day['dt']
             # Rain check
             if 'rain' not in day.keys():
@@ -30,4 +33,13 @@ class Forecast():
             else:
                 rain = day['rain']
 
-            print(f"{datetime.utcfromtimestamp(unix_timestamp).strftime('%Y-%m-%d')}\t{day['temp']['min']}/{day['temp']['max']}\t{rain}")
+            result.append({
+                'date': datetime.utcfromtimestamp(unix_timestamp).strftime('%Y-%m-%d'),
+                'tmin': day['temp']['min'],
+                'tmax': day['temp']['max'],
+                'rain': rain
+            })
+
+            # print(f"{datetime.utcfromtimestamp(unix_timestamp).strftime('%Y-%m-%d')}\t{day['temp']['min']}/{day['temp']['max']}\t{rain}")
+
+        return {'forecast': result}
