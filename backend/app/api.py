@@ -21,6 +21,6 @@ app.add_middleware(
 
 
 @app.get("/", tags=["root"])
-async def read_root() -> dict:
+async def read_root(zip_code) -> dict:
     forecast = Forecast()
-    return forecast.get(zip_code='02145')
+    return forecast.get(zip_code=str(zip_code))
