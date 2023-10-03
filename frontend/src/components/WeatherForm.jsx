@@ -21,7 +21,7 @@ const WeatherForm = () => {
                     <Spacer>
                     </Spacer>
                     <Col>
-                        <Button variant="primary" type="submit">
+                        <Button variant="outline-primary" type="submit">
                             Get
                         </Button>
                     </Col>
