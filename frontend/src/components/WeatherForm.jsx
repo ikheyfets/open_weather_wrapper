@@ -1,36 +1,34 @@
 import React from "react";
-import Form from 'react-bootstrap/Form';
-import { Heading, Flex, Divider, Spacer, Box, Button } from "@chakra-ui/react";
+import { Form, Col, Row, Button } from 'react-bootstrap';
+import { Heading, Flex, Divider, Spacer, Box } from "@chakra-ui/react";
 
 const WeatherForm = () => {
     return (
         <Flex
-            align="center"
-            justifyContent="center"
-            >
-
-            <Form className="d-flex">
-            
-                <Spacer></Spacer>
-                <Box>
-                    <label for="zip">Zip Code:</label>
-                    <input type="zip" id="zip" placeholder="Enter zip code" name="zip"/>
-                </Box>
-                <Spacer></Spacer>
-                <Box>
-                    <label for="country">Country:</label>
-                    <input type="country" id="country" placeholder="US" name="country"/>
-                </Box>
-                <Spacer></Spacer>
-                <Button 
-                    colorScheme="teal"
-                    variant="outline"
-                    size="md">
-                        Get
-                </Button>
-                <Spacer></Spacer>
+            justifyContent="center">
+            <Form>
+                <Row>
+                    <Spacer>
+                    </Spacer>
+                    <Col>
+                        <Form.Control placeholder="10001"/>
+                    </Col>
+                    <Spacer>
+                    </Spacer>
+                    <Col>
+                        <Form.Control placeholder="US"/>
+                    </Col>
+                    <Spacer>
+                    </Spacer>
+                    <Col>
+                        <Button variant="primary" type="submit">
+                            Get
+                        </Button>
+                    </Col>
+                    <Spacer>
+                    </Spacer>
+                </Row>
             </Form>
-
         </Flex>
     );
 };
